@@ -1,0 +1,238 @@
+/* ── LinkedIn Salary Insights — styles.css ─────────────────────────────────── */
+
+#lvl-salary-widget {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  max-width: 680px;
+  animation: lvl-fade-in 0.3s ease;
+}
+
+@keyframes lvl-fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Header */
+.lvl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.lvl-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.lvl-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.lvl-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a56db;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 4px;
+  padding: 2px 6px;
+  letter-spacing: 0.02em;
+}
+
+.lvl-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.lvl-close:hover {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* Meta row */
+.lvl-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.lvl-company {
+  font-weight: 600;
+  color: #334155;
+}
+
+.lvl-track {
+  color: #64748b;
+}
+
+.lvl-dot {
+  color: #cbd5e1;
+}
+
+.lvl-count {
+  color: #94a3b8;
+}
+
+/* Stats grid */
+.lvl-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.lvl-stat {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lvl-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+.lvl-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.02em;
+}
+
+.lvl-highlight {
+  color: #1a56db;
+}
+
+/* Bar chart */
+.lvl-bar-wrap {
+  margin-bottom: 14px;
+}
+
+.lvl-bar-track {
+  position: relative;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 99px;
+  margin-bottom: 6px;
+}
+
+.lvl-bar-fill {
+  position: absolute;
+  top: 0; bottom: 0;
+  background: linear-gradient(90deg, #93c5fd, #1a56db);
+  border-radius: 99px;
+  left: 10%;
+  right: 10%;
+}
+
+.lvl-bar-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: default;
+}
+
+.lvl-bar-p25 { background: #93c5fd; }
+.lvl-bar-p50 { background: #1a56db; width: 14px; height: 14px; }
+.lvl-bar-p75 { background: #1e40af; }
+
+.lvl-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #94a3b8;
+  padding: 0 2px;
+}
+
+/* No data */
+.lvl-no-data {
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 12px 0;
+  text-align: center;
+}
+
+/* CTA link */
+.lvl-cta {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a56db;
+  text-decoration: none;
+  padding: 8px;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  background: #eff6ff;
+  transition: background 0.15s;
+}
+
+.lvl-cta:hover {
+  background: #dbeafe;
+  text-decoration: none;
+}
+
+/* Loading state */
+#lvl-salary-widget.lvl-loading .lvl-spinner-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 12px 0;
+}
+
+.lvl-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #1a56db;
+  border-radius: 50%;
+  animation: lvl-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes lvl-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .lvl-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
