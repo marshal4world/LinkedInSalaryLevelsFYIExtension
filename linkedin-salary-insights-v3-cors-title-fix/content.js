@@ -333,11 +333,15 @@ async function run() {
     if (salaryResult.entries?.length && !stats) {
       console.warn("[LvlSalary] Levels returned rows, but no usable compensation fields were recognized.", salaryResult.entries.slice(0, 3));
     }
+
+    const displayTrack = salaryResult.matchedLevelName ? `${track} (${salaryResult.matchedLevelName})` : track;
+    const finalLevelsUrl = salaryResult.matchedLevelUrl || levelsUrl;
+
     injectWidget(buildWidget({
       company,
-      track,
+      track: displayTrack,
       stats,
-      levelsUrl,
+      levelsUrl: finalLevelsUrl,
       message: getSalaryMessage(salaryResult, stats),
     }), findInsertionPoint());
   } finally { running = false; }
